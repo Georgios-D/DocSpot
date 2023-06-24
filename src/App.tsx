@@ -8,10 +8,16 @@ type Props = {};
 
 const App = (props: Props) => {
     return (
-        <div className="w-full h-full">
+        <div className="w-full h-full flex">
             <Navbar />
-            <Filter />
-            <Results />
+            <div className="mt-[80px] flex flex-1">
+                <Filter />
+                <Results />
+                {/* <div className="p-6 flex gap-6 flex-col w-full">
+                    <input type="text" placeholder="Search" />
+                    <Results />
+                </div> */}
+            </div>
         </div>
     );
 };

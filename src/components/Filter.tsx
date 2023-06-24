@@ -18,24 +18,25 @@ const Filter = (props: Props) => {
     };
 
     return (
-        <div className="bg-gray-500 w-[250px] h-full">
-            <Box sx={{ width: 250 }}>
-                <div>
-                    Distance
-                    <Slider
-                        className="mt-24"
-                        getAriaLabel={() => "Temperature range"}
-                        value={value}
-                        onChange={handleChange}
-                        valueLabelDisplay="auto"
-                        getAriaValueText={valuetext}
-                    />
+        <div className="w-[350px] h-full flex p-6">
+            <div className="bg-white w-full h-full p-6">
+                <Box sx={{ width: 250 }}>
+                    <div>
+                        Distance
+                        <Slider
+                            getAriaLabel={() => "Temperature range"}
+                            value={value}
+                            onChange={handleChange}
+                            valueLabelDisplay="auto"
+                            getAriaValueText={valuetext}
+                        />
+                    </div>
+                </Box>
+                <BasicRating />
+                <div className="mt-4">
+                    Availability
+                    <Availability />
                 </div>
-            </Box>
-            <BasicRating />
-            <div className="mt-4">
-                Availability
-                <Availability />
             </div>
         </div>
     );
