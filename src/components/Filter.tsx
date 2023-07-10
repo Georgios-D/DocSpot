@@ -5,9 +5,11 @@ import Availability from "./Availability";
 import Box from "@mui/material/Box";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
-type Props = {};
+type Props = {
+    className?: string;
+};
 
-const Filter = (props: Props) => {
+const Filter = ({ className }: Props) => {
     function valuetext(value: number) {
         return `${value}km`;
     }
@@ -22,7 +24,7 @@ const Filter = (props: Props) => {
     const handleClick = () => setFilter(!filter);
 
     return (
-        <div className="w-[350px] h-full flex p-6">
+        <div className={`w-[350px] h-full hidden p-6 ${className}`}>
             <div className="bg-white w-full h-full p-6">
                 <div>
                     <Box sx={{ width: 250 }}>

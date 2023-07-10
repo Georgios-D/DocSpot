@@ -1,20 +1,18 @@
-import { Drawer, Box, Typography, IconButton } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Drawer, Box, Typography, IconButton, Slider } from "@mui/material";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { useState } from "react";
+import Filter from "./Filter";
+import BasicRating from "./BasicRating";
+import Availability from "./Availability";
 
-export const MuiDrawer = () => {
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+type Props = {
+    setIsDrawerOpen: (isDrawerOpen: boolean) => void;
+    isDrawerOpen: boolean;
+};
+
+export const MuiDrawer = ({ setIsDrawerOpen, isDrawerOpen }: Props) => {
     return (
-        <>
-            <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="logo"
-                onClick={() => setIsDrawerOpen(true)}
-            >
-                <MenuIcon />
-            </IconButton>
+        <div className="flex md:hidden flex-col">
             <Drawer
                 anchor="left"
                 open={isDrawerOpen}
@@ -24,8 +22,20 @@ export const MuiDrawer = () => {
                     <Typography variant="h6" component="div">
                         Side Panel
                     </Typography>
+                    <div>
+                        Distance
+                        <Slider
+                            getAriaLabel={() => "Temperature range"}
+                            valueLabelDisplay="auto"
+                        />
+                    </div>
+                    <BasicRating />
+                    <div className="mt-4">
+                        Availability
+                        <Availability />
+                    </div>
                 </Box>
             </Drawer>
-        </>
+        </div>
     );
 };

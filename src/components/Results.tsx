@@ -49,7 +49,7 @@ const ResultCard = ({ name, address, city, zip }: ResultCardProps) => {
 
 const Results = (props: Props) => {
     return (
-        <div className="bg-white-200 flex-1 h-full p-6 gap-6 flex flex-col">
+        <div className="bg-white-200 flex-1 h-full gap-6 flex flex-col">
             {data.map((item) => (
                 <ResultCard
                     key={item.id}
